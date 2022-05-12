@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+import timeit
+
 """Functional Python Programming
 
 Chapter 1, Example Set 1
 """
 import timeit
+from typing import List
 
 def sum_numeric():
     """Purely numeric.
@@ -50,6 +53,14 @@ def sum_full_oo():
         if n % 3 == 0 or n % 5 == 0:
             m.append(n)
     print(m.sum())
+
+def sumr(seq: list) -> int:
+    """
+    Recursive sum on a given list
+    """
+    if len(seq) == 0:
+        return 0
+    return seq[0] + sumr(seq[1:])
 
 
 def foldr(seq, op, init):
@@ -106,8 +117,8 @@ def folding():
     >>> []+([1]+([2]+([3]+[4])))
     [1, 2, 3, 4]
     """
-    print("foldl", timeit.timeit("((([]+[1])+[2])+[3])+[4]"))
-    print("foldr", timeit.timeit("[]+([1]+([2]+([3]+[4])))"))
+    print("foldl", timeit.timeit("((([]+[1])+[2])+[3])+[4]")) # this one is faster
+    print("foldr", timeit.timeit("[]+([1]+([2]+([3]+[4])))")) # this one is slower (the difference is small though)
 
 
 demo_1 = """
@@ -133,6 +144,6 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    # test()
     # import timeit
-    # folding()
+    folding()

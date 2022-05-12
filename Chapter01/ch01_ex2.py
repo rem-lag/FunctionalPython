@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Functional Python Programming
 
-Chapter 1, Example Set 2
+Chapter 1, Example Set 2 - Starting from "A classic example of functional programming"
 
 Newton-Raphson root-finding via bisection.
 
-http://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf
+http://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf -> Why Functional Programming Matters 1990
 
 Translated from Miranda to Python.
 """
