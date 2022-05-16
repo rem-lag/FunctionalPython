@@ -66,6 +66,11 @@ def within(eps: float, iterable: Iterator[float]) -> Iterator[float]:
     return head_tail(eps, next(iterable), iterable)
 
 def sqrt(a0: float, eps: float, n: float):
+    """
+    a0: initial starting point
+    eps: tolerance margin
+    n: number to find square root of
+    """
     return within(eps, repeat(lambda x: next_(n, x), a0)) # n stays the same, only x is different
 
 def test():
