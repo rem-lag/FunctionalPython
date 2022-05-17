@@ -49,3 +49,4 @@ Temporary Items
 # IDE and Python Files
 venv
 __pycache__
+.mypy_cache
