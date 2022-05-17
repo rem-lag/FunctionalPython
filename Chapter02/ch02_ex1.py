@@ -94,12 +94,15 @@ def isprimer(n: int) -> bool:
     """
     def isprime(k: int, coprime: int) -> bool:
         """Is k relatively prime to the value coprime?"""
-        if k < coprime*coprime:
+        if k < coprime*coprime: # At this point it is proven prime if second if statement has not returned
             return True
-        if k % coprime == 0:
+        if k % coprime == 0: # The number is divisible by a number other than 1 and itself
             return False
-        return isprime(k, coprime+2)
+        return isprime(k, coprime+2) # Increment by two, no reason to check even numbers
 
+    # Conditions in outer function set boundry conditions
+    # No point in checking <2, 2, or even numbers
+    # Outer also initializes recursion
     if n < 2:
         return False
     if n == 2:
@@ -127,6 +130,8 @@ def isprimeg(n: int) -> bool:
         return True
     if n % 2 == 0:
         return False
+    # This example is not purely stateless functional due to the for loop
+    # but uses functional principals 
     return not any(n%p == 0 for p in range(3, int(math.sqrt(n))+1, 2))
 
 def recursion():
@@ -265,6 +270,7 @@ def test():
 if __name__ == "__main__":
     test()
     namedtuples()
+    isprimeg(3.2)
     #recursion()
     #limit_of_performance()
 
