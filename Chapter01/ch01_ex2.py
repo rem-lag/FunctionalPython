@@ -9,6 +9,7 @@ http://www.cs.kent.ac.uk/people/staff/dat/miranda/whyfp90.pdf -> Why Functional 
 
 Translated from Miranda to Python.
 """
+import doctest
 import timeit
 from typing import Callable, Iterator
 
@@ -91,7 +92,7 @@ def test():
     >>> round(1.732051**2, 5)
     3.0
     """
-    import doctest
+    
     doctest.testmod(verbose=1)
 
 if __name__ == "__main__":

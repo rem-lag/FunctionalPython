@@ -4,8 +4,13 @@
 Chapter 2, Example Set 1
 """
 # pylint: disable=missing-docstring,wrong-import-position
+import doctest
 import math
+import time
+import timeit
 from typing import Iterator
+
+
 def numbers() -> Iterator[int]:
     """
     Gemerator function -> lazy eval
@@ -30,7 +35,7 @@ def sum_to(n: int) -> int:
 
 def namedtuples():
     """nametuple vs. class performance"""
-    import timeit
+    
     class_time = timeit.timeit(
         """x= X(1,2,3)""",
         """
@@ -64,7 +69,7 @@ class X(NamedTuple):
         """)
     print(f"NamedTuple {typing_nt_time}")
 
-import math
+
 def isprimei(n: int) -> bool:
     """Is n prime?
 
@@ -137,7 +142,7 @@ def isprimeg(n: int) -> bool:
 def recursion():
     """Recursion Performance Comparison.
     """
-    import timeit
+    
     print("isprimei",
           timeit.timeit(
               """isprimei(131071)""",
@@ -185,7 +190,7 @@ def limit_of_performance():
     """We can see that testing a large prime is
     quite slow. Testing large non-primes is quite fast.
     """
-    import time
+    
 
     t = time.perf_counter()
     for i in range(30, 89):
@@ -264,7 +269,7 @@ True
     }
 
 def test():
-    import doctest
+
     doctest.testmod(verbose=2)
 
 if __name__ == "__main__":

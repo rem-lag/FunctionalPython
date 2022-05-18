@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-import timeit
-
 """Functional Python Programming
 
 Chapter 1, Example Set 1
 """
+import doctest
 import timeit
 from typing import List
+
 
 def sum_numeric():
     """Purely numeric.
@@ -139,11 +139,11 @@ __test__ = {
 
 
 def test():
-    import doctest
+    
     doctest.testmod(verbose=True)
 
 
 if __name__ == "__main__":
-    # test()
-    # import timeit
+    test()
+
     folding()

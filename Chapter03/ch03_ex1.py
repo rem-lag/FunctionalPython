@@ -3,7 +3,11 @@
 
 Chapter 3, Example Set 1
 """
+import doctest
+import sys
+import timeit
 from typing import Callable
+
 
 class Mersenne1:
     """Callable object with a **Strategy** plug in required."""
@@ -108,11 +112,11 @@ __test__ = {
     'test_pure': test_pure
 }
 def test():
-    import doctest
+
     doctest.testmod(verbose=2)
 
 def performance():
-    import timeit
+    
     print(m1s.pow2.__name__,
           timeit.timeit(
               """m1s(17)""",
@@ -127,9 +131,8 @@ def performance():
               """from ch03_ex1 import m1f"""))
 
 if __name__ == "__main__":
-    import sys
+
     print(sys.version)
     # test()
     print(multy(10))
-    import timeit
     performance()
