@@ -15,6 +15,8 @@ class Mersenne1:
 def shifty(b: int) -> int:
     """2**b via shifting.
 
+    << is left shift of bits
+
     >>> shifty(17)-1
     131071
     """
@@ -32,6 +34,8 @@ def multy(b: int) -> int:
 
 def faster(b: int) -> int:
     """2**b via faster divide-and-conquer recursion.
+
+    performs log2(b) multiplications instead of b multiplications
 
     >>> faster(17)-1
     131071
@@ -112,19 +116,20 @@ def performance():
     print(m1s.pow2.__name__,
           timeit.timeit(
               """m1s(17)""",
-              """from Chapter_3.ch03_ex1 import m1s"""))
+              """from ch03_ex1 import m1s"""))
     print(m1m.pow2.__name__,
           timeit.timeit(
               """m1m(17)""",
-              """from Chapter_3.ch03_ex1 import m1m"""))
+              """from ch03_ex1 import m1m"""))
     print(m1f.pow2.__name__,
           timeit.timeit(
               """m1f(17)""",
-              """from Chapter_3.ch03_ex1 import m1f"""))
+              """from ch03_ex1 import m1f"""))
 
 if __name__ == "__main__":
     import sys
     print(sys.version)
-    test()
-    # import timeit
-    # performance()
+    # test()
+    print(multy(10))
+    import timeit
+    performance()

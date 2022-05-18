@@ -223,7 +223,7 @@ __test__ = {
 >>> demo == flat
 True
 
->>> group7_iter = list(group_by_iter(7, flat))
+>>> group7_iter = list(group_by_iter(7, iter(flat)))
 >>> group7_iter[-1]
 (7877, 7879, 7883, 7901, 7907, 7919)
 
