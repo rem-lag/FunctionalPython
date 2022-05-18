@@ -89,6 +89,9 @@ def flatten(data: Iterable[Iterable[Any]]) -> Iterable[Any]:
 
 # Faster than isprimer, isprimeg
 # pylint: disable=wrong-import-position
+import sys
+import os
+sys.path.append(os.path.abspath('.'))
 from Chapter02.ch02_ex1 import isprimei
 import time
 from functools import reduce
@@ -238,7 +241,5 @@ def test():
     doctest.testmod(verbose=1)
 
 if __name__ == "__main__":
-    # import sys
-    # print(sys.path)
     test()
     # performance()
