@@ -134,14 +134,18 @@ def group_by_seq(n: int, sequence: Flat) -> Grouped:
     else:
         return full_sized_items
 
-# ItemType = TypeVar("ItemType")
+ItemType = TypeVar("ItemType")
 Flat_Iter = Iterator[ItemType]
 Grouped_Iter = Iterator[Tuple[ItemType, ...]]
 def group_by_iter(n: int, iterable: Flat_Iter) -> Grouped_Iter:
     row = tuple(next(iterable) for i in range(n))
     while row:
-        yield row
-        row = tuple(next(iterable) for i in range(n))
+        try:        
+            yield row
+            row = tuple(next(iterable) for i in range(n))
+        except:
+            return
+
 
 from itertools import zip_longest
 def group_by_slice(
@@ -207,7 +211,7 @@ __test__ = {
     "grouping_test":
         """
 >>> with open("1000.txt") as source:
-...     flat= list(parse_g(source))
+...     flat = list(parse_g(source))
 >>> len(flat)
 1000
 
@@ -219,8 +223,7 @@ __test__ = {
 >>> demo == flat
 True
 
->>> group7_iter= list(group_by_iter(7, iter(flat)))
-
+>>> group7_iter = list(group_by_iter(7, flat))
 >>> group7_iter[-1]
 (7877, 7879, 7883, 7901, 7907, 7919)
 
@@ -242,4 +245,5 @@ def test():
 
 if __name__ == "__main__":
     test()
+    # print(list(group_by_iter(3, [1,2,3,4])))
     # performance()
