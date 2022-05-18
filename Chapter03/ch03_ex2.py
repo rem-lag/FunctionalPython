@@ -3,9 +3,11 @@
 
 Chapter 3, Example Set 2
 """
-
+import doctest
 from decimal import Decimal
-from typing import Text, Optional
+from typing import Optional, Text
+
+
 def clean_decimal_1(text: Text) -> Optional[Decimal]:
     """
     Remove $ and , from a string, return a Decimal.
@@ -34,7 +36,11 @@ def clean_decimal_2(text: Text) -> Optional[Decimal]:
 
 
 def remove(text: Text, chars: Text) -> Text:
-    """Remove all of the given chars from a string."""
+    """
+    Remove all of the given chars from a string.
+    pass characters to be removed like '.$?!' etc
+    recursively removes each character
+    """
     if chars:
         return remove(
             text.replace(chars[0], ""),
@@ -55,7 +61,7 @@ def clean_decimal_3(text: Text) -> Optional[Decimal]:
 
 
 def test():  # pylint: disable=missing-docstring
-    import doctest
+    
     doctest.testmod(verbose=2)
 
 if __name__ == "__main__":

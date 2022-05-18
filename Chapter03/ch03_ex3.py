@@ -3,7 +3,11 @@
 
 Chapter 3, Example Set 3
 """
-
+import doctest
+import os
+import sys
+import time
+sys.path.append(os.path.abspath('.'))
 from typing import TextIO, Tuple, List, Iterator, TypeVar, Any, Iterable, Sequence
 
 def strip_head(source: TextIO, line: str) -> Tuple[TextIO, str]:
@@ -89,11 +93,7 @@ def flatten(data: Iterable[Iterable[Any]]) -> Iterable[Any]:
 
 # Faster than isprimer, isprimeg
 # pylint: disable=wrong-import-position
-import sys
-import os
-sys.path.append(os.path.abspath('.'))
 from Chapter02.ch02_ex1 import isprimei
-import time
 from functools import reduce
 
 def performance():
@@ -240,7 +240,7 @@ True
 }
 
 def test():
-    import doctest
+    
     doctest.testmod(verbose=1)
 
 if __name__ == "__main__":
