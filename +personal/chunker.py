@@ -1,6 +1,14 @@
+"""
+A couple functions that were written to practice
+recurisve generator functions
+
+Also, I'm actually going to need this functionality
+"""
+
+from typing import Any, Iterator, List
 
 
-def make_chunks(item, batches):
+def make_chunks(item: List[Any], batches: int) -> Iterator[List[Any]]:
     """
     Generator function
     Takes list (or other slicable) and returns it
@@ -21,7 +29,8 @@ def make_chunks(item, batches):
     
     return chunker(item, 0, base_size, batches)
 
-def make_chunks_extra(item, batches):
+
+def make_chunks_extra(item: List[Any], batches: int) -> Iterator[List[Any]]:
     """
     Generator function
     Takes list (or other slicable) and returns it
@@ -41,6 +50,7 @@ def make_chunks_extra(item, batches):
         yield from chunker(chunk, start+base_size, stop+base_size, remain-1)
     
     return chunker(item, 0, base_size, batches)
+
 
 def main():
     list_one = [i for i in range(12)]
